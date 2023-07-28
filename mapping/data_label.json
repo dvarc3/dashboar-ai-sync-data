@@ -1,0 +1,21 @@
+{
+    "display_name": {
+        "type": "keyword",
+        "normalizer": "keyword_lowercase"
+    },
+    "text": {
+        "type":"text",
+        "analyzer": "irrespective_character_analyzer"
+    },
+    "labels": {
+        "type": "flattened",
+        "normalizer": "keyword_lowercase"
+    },
+    "annotator": {
+        "type": "keyword",
+        "normalizer": "keyword_lowercase"
+    },
+    "id": {
+        "type":"keyword"
+    }
+}
