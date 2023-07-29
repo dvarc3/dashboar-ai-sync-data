@@ -8,8 +8,5 @@
     "msg": {
         "type":"text",
         "analyzer": "irrespective_character_analyzer"
-    },
-    "mid": {
-        "type":"keyword"
     }
 }
