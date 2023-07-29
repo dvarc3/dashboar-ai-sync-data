@@ -1,7 +1,4 @@
 {
-    "id": {
-        "type":"keyword"
-    },
     "user_id": {
         "type":"long"
     },
@@ -11,5 +8,8 @@
     "msg": {
         "type":"text",
         "analyzer": "irrespective_character_analyzer"
+    },
+    "mid": {
+        "type":"keyword"
     }
 }

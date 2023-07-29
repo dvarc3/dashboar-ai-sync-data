@@ -7,7 +7,7 @@ let db;
 let dbRep;
 let running = false;
 const es_index = 'data_label_index';
-const table = 'data_label';
+const table = 'data_label_set_info';
 
 const loadDB = async () => {
     if (db) {
@@ -61,7 +61,7 @@ const handleAsync = result => new Promise(async (resolve) => {
     if (!resultBulk.body.errors) {
         async.eachSeries(result, async (data) => {
             const newvalues = { $set: { processed: true } };
-            const queryA = { id: data.id, last_updated_time: data.last_updated_time };
+            const queryA = { _id: data.mid };
             await updateData(queryA, newvalues);
         }, (err) => {
             resolve();
