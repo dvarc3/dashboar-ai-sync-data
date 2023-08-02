@@ -14,7 +14,7 @@
         "type": "keyword",
         "normalizer": "keyword_lowercase"
     },
-    "id": {
+    "mid": {
         "type":"keyword"
     }
 }

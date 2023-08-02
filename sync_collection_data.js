@@ -6,7 +6,7 @@ const es = require('./src/es');
 let db;
 let dbRep;
 let running = false;
-const es_index = 'data_index';
+const es_index = 'data_set_info_index';
 const table = 'data_set_info';
 
 const loadDB = async () => {
@@ -15,7 +15,7 @@ const loadDB = async () => {
     }
     try {
         const client = await mongo.connect(process.env.MONGO_URL_PROD, { useNewUrlParser: true, useUnifiedTopology: true });
-        db = client.db(process.env.USER_DB);
+        db = client.db(process.env.DASHBOARDAI_DB);
     } catch (err) {
         console.log(err);
     }
@@ -28,7 +28,7 @@ const loadDBRep = async () => {
     }
     try {
         const client = await mongo.connect(process.env.MONGO_URL_PROD_REP, { useNewUrlParser: true, useUnifiedTopology: true });
-        dbRep = client.db(process.env.USER_DB);
+        dbRep = client.db(process.env.DASHBOARDAI_DB);
     } catch (err) {
         console.log(err);
     }

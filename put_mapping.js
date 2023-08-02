@@ -21,8 +21,8 @@ const settings = {
 };
 
 const initIndex = async () => {
-    console.log(await es.initIndexWithSettings('data_index', dataMapping, settings));
-    console.log(await es.initIndexWithSettings('data_label_index', dataLabelMapping, settings));
+    console.log(await es.initIndexWithSettings('data_set_info_index', dataMapping, settings));
+    console.log(await es.initIndexWithSettings('data_label_set_info_index', dataLabelMapping, settings));
 };
 
 initIndex();
