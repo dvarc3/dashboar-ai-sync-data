@@ -7,9 +7,6 @@
         "type":"text",
         "analyzer": "irrespective_character_analyzer"
     },
-    "labels": {
-        "type": "flattened"
-    },
     "annotator": {
         "type": "keyword",
         "normalizer": "keyword_lowercase"
