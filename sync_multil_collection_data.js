@@ -10,9 +10,9 @@ let db;
 let dbRep;
 let running = false;
 let lastDayRunning = false;
-let es_index = 'data_set_info_index';
-const table = 'data_set_info';
-let time_day = '2023_08_02';
+let es_index = 'nogame-data_set_info_index';
+const table = 'nogame-data_set_info';
+let time_day = '08_02_2023'; //MM-DD-YYYY
 
 const loadDB = async () => {
     if (db) {
@@ -143,13 +143,13 @@ const getColName = async date => `${table}_${date}`;
 
 const update = async () => {
     const date = new Date();
-    const currentDay = moment(date, 'YYY-MM-DD').format('YYYY_MM_DD');
+    const currentDay = moment(date, 'YYY-MM-DD').format('MM_DD_YYYY');
 
     const dbo = await loadDBRep();
     handle(dbo, table, currentDay);
 
     if (date.getHours() < 1 && date.getMinutes() < 5) {
-        const lastDay = moment(date, 'YYY-MM-DD').subtract(1, 'D').format('DD-MM-YYYY');
+        const lastDay = moment(date, 'YYY-MM-DD').subtract(1, 'D').format('MM_DD_YYYY');
         handleLastDay(dbo, await getColName(lastDay), lastDay);
     } else {
         lastDayRunning = false;

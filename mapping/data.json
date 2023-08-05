@@ -11,5 +11,8 @@
     },
     "mid": {
         "type":"keyword"
+    },
+    "data_label_set_info_ids": {
+        "type":"arrays"
     }
 }

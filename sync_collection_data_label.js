@@ -6,8 +6,8 @@ const es = require('./src/es');
 let db;
 let dbRep;
 let running = false;
-const es_index = 'data_label_set_info_index';
-const table = 'data_label_set_info';
+const es_index = 'nogame-data_label_set_info_index';
+const table = 'nogame-data_label_set_info';
 
 const loadDB = async () => {
     if (db) {
