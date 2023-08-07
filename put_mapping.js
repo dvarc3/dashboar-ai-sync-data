@@ -1,6 +1,6 @@
 const es = require('./src/es');
-const dataMapping = require('./mapping/data.json');
 const dataLabelMapping = require('./mapping/data_label.json');
+require('dotenv').config();
 
 const settings = {
     analysis: {
@@ -21,8 +21,7 @@ const settings = {
 };
 
 const initIndex = async () => {
-    console.log(await es.initIndexWithSettings('data_set_info_index', dataMapping, settings));
-    console.log(await es.initIndexWithSettings('data_label_set_info_index', dataLabelMapping, settings));
+    console.log(await es.initIndexWithSettings(`${process.env.PROJECT_ID}-data_label_set_info_index`, dataLabelMapping, settings));
 };
 
 initIndex();

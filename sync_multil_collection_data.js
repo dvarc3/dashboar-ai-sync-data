@@ -10,8 +10,8 @@ let db;
 let dbRep;
 let running = false;
 let lastDayRunning = false;
-let es_index = 'nogame-data_set_info_index';
-const table = 'nogame-data_set_info';
+let es_index = `${process.env.PROJECT_ID}-data_set_info_index`;
+const table = `${process.env.PROJECT_ID}-data_set_info`;
 let time_day = '08_02_2023'; //MM-DD-YYYY
 
 const loadDB = async () => {
