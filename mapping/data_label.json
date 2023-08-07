@@ -13,8 +13,5 @@
     },
     "mid": {
         "type":"keyword"
-    },
-    "data_set_info_ids": {
-        "type":"arrays"
     }
 }
