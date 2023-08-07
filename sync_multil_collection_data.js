@@ -58,7 +58,7 @@ const handleAsync = (result, col, date) => new Promise(async (resolve) => {
     });
     let resultBulk;
     try {
-        es_index = `data_set_info_index_${date}`;
+        es_index = `${process.env.PROJECT_ID}-data_set_info_index-${date}`;
         if (time_day !== date) {
             const result = await es.initIndexWithSettings(es_index, dataMapping, {
                 analysis: {
@@ -139,14 +139,14 @@ const handleLastDay = async (dbo, col, date) => {
     lastDayRunning = false;
 };
 
-const getColName = async date => `${table}_${date}`;
+const getColName = async date => `${table}-${date}`;
 
 const update = async () => {
     const date = new Date();
     const currentDay = moment(date, 'YYY-MM-DD').format('MM_DD_YYYY');
 
     const dbo = await loadDBRep();
-    handle(dbo, table, currentDay);
+    handle(dbo, await getColName(currentDay), currentDay);
 
     if (date.getHours() < 1 && date.getMinutes() < 5) {
         const lastDay = moment(date, 'YYY-MM-DD').subtract(1, 'D').format('MM_DD_YYYY');
